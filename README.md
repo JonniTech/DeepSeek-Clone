@@ -54,7 +54,7 @@ This project solves these issues through a rigorously engineered frontend:
 
 *   **Robust Layout Engine**: Utilizes a calculated width strategy (`calc(100%-4rem)`) and intelligent flexbox layouts (`min-w-0`) to ensure 0% overflow on any device.
 *   **Adaptive Components**: `ChatList` and `CodeBlock` components implicitly adapt to their container, preventing layout breaks even with long strings or complex code snippets.
-*   **Real-Time Streaming**: Implements the OpenAI SDK to stream responses from the Z.AI API (GLM-4.7), providing immediate feedback to the user.
+*   **Real-Time Streaming**: Implements the OpenAI SDK to stream responses from the Z.AI API (GLM-4.7-Flash), providing immediate feedback to the user.
 *   **Secure Authentication**: Integrated Clerk authentication protects routes and strictly manages user sessions.
 
 ---
