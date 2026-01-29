@@ -75,26 +75,27 @@ export function ChatList() {
     return (
         <div ref={scrollContainerRef} className="flex-1 h-full overflow-hidden w-full chat-scroll-area">
             <ScrollArea className="h-full w-full">
-                <div className="w-full max-w-4xl mx-auto py-4 pb-8 px-2 sm:px-4">
+                <div className="w-full max-w-4xl mx-auto pt-4 pb-8 px-2 sm:px-4">
                     <AnimatePresence mode="popLayout">
-                        {messages.map((message, index) => (
-                            <ChatMessage
-                                key={message.id}
-                                message={message}
-                                isStreaming={
-                                    isLoading &&
-                                    index === messages.length - 1 &&
-                                    message.role === 'assistant'
-                                }
-                            />
-                        ))}
+                        {messages.map((message, index) => {
+                            // Hide the last assistant message while it's loading/streaming to show fully formed later
+                            if (isLoading && index === messages.length - 1 && message.role === 'assistant') {
+                                return null;
+                            }
+                            return (
+                                <ChatMessage
+                                    key={message.id}
+                                    message={message}
+                                    isStreaming={false}
+                                />
+                            );
+                        })}
                     </AnimatePresence>
 
-                    {/* Loading indicator - show when waiting for first response */}
-                    {isLoading && messages[messages.length - 1]?.role === 'assistant' &&
-                        !messages[messages.length - 1]?.content && (
-                            <LoadingIndicator />
-                        )}
+                    {/* Loading indicator - show when waiting for response (buffering entire output) */}
+                    {isLoading && messages[messages.length - 1]?.role === 'assistant' && (
+                        <LoadingIndicator />
+                    )}
                 </div>
             </ScrollArea>
         </div>

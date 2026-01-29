@@ -67,9 +67,6 @@ export function ChatInput() {
                         <FiSend className="w-4 h-4" />
                     </Button>
                 </div>
-                <p className="text-xs text-muted-foreground mt-2 text-center">
-                    Press Enter to send, Shift+Enter for new line
-                </p>
             </div>
         </motion.div>
     );

@@ -71,7 +71,7 @@ export function Chat() {
                 </AnimatePresence>
 
                 {/* Chat area - takes remaining space */}
-                <div className="flex-1 flex flex-col min-h-0 pt-14">
+                <div className="flex-1 flex flex-col min-h-0">
                     <ChatList />
                 </div>
 

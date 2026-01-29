@@ -15,9 +15,9 @@ export function Header({ onToggleSidebar }: HeaderProps) {
     const createConversation = useChatStore(s => s.createConversation);
 
     return (
-        <header className="flex items-center justify-between px-4 py-3 border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-10">
+        <header className="flex items-center justify-between px-2 sm:px-4 py-3 border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-10">
             {/* Left section */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 sm:gap-3">
                 {onToggleSidebar && (
                     <Button
                         variant="ghost"
@@ -30,10 +30,7 @@ export function Header({ onToggleSidebar }: HeaderProps) {
                 )}
                 <div className="flex items-center gap-3">
                     <DeepSeekLogo className="w-9 h-9" />
-                    <div>
-                        <h1 className="font-semibold text-lg leading-none">DeepSeek Clone</h1>
-                        <p className="text-xs text-muted-foreground mt-0.5">Developer AI Assistant</p>
-                    </div>
+                    <h1 className="font-semibold text-lg leading-none">DeepSeek</h1>
                 </div>
             </div>
 
